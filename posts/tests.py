@@ -7,6 +7,11 @@ class PostModeTest(TestCase):
     def setUp(self):
         Post.objects.create(text="just a test")
 
+    def test_test_content(self):
+        post=Post.objects.get(id=1)
+        expected_object_name = f"{post.text}"
+        self.assertEqual(expected_object_name, "just a test")
+
 class HomePageViewTest (TestCase):
     def setUp(self):
         Post.objects.create(text='this is another test')
@@ -25,8 +30,5 @@ class HomePageViewTest (TestCase):
         self.assertTemplateUsed(resp, "home.html")
 
 
-    def test_test_content(self):
-        post=Post.objects.get(id=1)
-        expected_object_name = f"{post.text}"
-        self.assertEqual(expected_object_name, "just a test")
+    
 
