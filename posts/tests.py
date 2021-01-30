@@ -7,7 +7,7 @@ class PostModeTest(TestCase):
     def setUp(self):
         Post.objects.create(text="just a test")
 
-    def test_test_content(self):
+    def test_text_content(self):
         post=Post.objects.get(id=1)
         expected_object_name = f"{post.text}"
         self.assertEqual(expected_object_name, "just a test")
